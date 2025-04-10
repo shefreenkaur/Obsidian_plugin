@@ -7,6 +7,7 @@ export class TextProcessingUtils implements TextProcessor {
     private stopWords: Set<string> = new Set([
         'a', 'an', 'the', 'and', 'or', 'but', 'is', 'are', 'was', 'were', 
         'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did',
+        'of', 'as', 'like', 'if', 'that', 'you', 'with', 'your', 'through',
         'to', 'from', 'in', 'out', 'on', 'off', 'over', 'under', 'again',
         'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why',
         'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other',
