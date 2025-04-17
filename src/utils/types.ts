@@ -130,6 +130,9 @@ export interface PluginAPI {
     
     // Add a concept to a note
     addConceptToNote(filePath: string, concept: string): Promise<void>;
+
+    updateNoteConcepts(path: string, concepts: string[]): void;
+
     
     // Generate a summary from related notes
     generateSummary(file: TFile): Promise<string>;

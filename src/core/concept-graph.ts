@@ -223,4 +223,12 @@ export class ConceptGraphImpl implements ConceptGraph {
         
         return { nodes, edges };
     }
+    public updateNoteConcepts(path: string, newConcepts: string[]): void {
+        this.notes.set(path, {
+            path: path,
+            concepts: newConcepts,
+            lastUpdated: Date.now()
+        });
+    }
+    
 }

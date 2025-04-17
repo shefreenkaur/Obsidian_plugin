@@ -124,3 +124,19 @@
 .knowledge-synthesis-summary-btn:hover {
     background-color: var(--interactive-accent-hover);
 }
+
+/* Scrollable Related Notes Panel */
+.knowledge-synthesis-related-notes {
+    max-height: 100%;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.knowledge-synthesis-related-notes::-webkit-scrollbar {
+    width: 6px;
+}
+
+.knowledge-synthesis-related-notes::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.4);
+    border-radius: 4px;
+}

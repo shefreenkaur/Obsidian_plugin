@@ -373,4 +373,9 @@ export default class KnowledgeSynthesisPlugin extends Plugin implements PluginAP
     public getSettings(): KnowledgeSynthesisSettings {
         return this.settings;
     }
+    updateNoteConcepts(path: string, concepts: string[]): void {
+    (this.conceptGraph as ConceptGraphImpl).updateNoteConcepts(path, concepts);
+
+}
+
 }

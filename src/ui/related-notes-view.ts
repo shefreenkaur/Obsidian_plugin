@@ -107,23 +107,63 @@ export class RelatedNotesView extends ItemView implements RelatedNotesViewContro
                 indicatorEl.style.width = `${Math.round(related.relevance * 100)}%`;
                 
                 // Add shared concepts
-                if (related.sharedConcepts.length > 0) {
-                    const sharedEl = noteEl.createDiv({ 
-                        cls: 'knowledge-synthesis-shared-concepts' 
-                    });
-                    
-                    sharedEl.createSpan({ 
-                        cls: 'knowledge-synthesis-shared-label',
-                        text: 'Shared concepts: '
-                    });
-                    
-                    for (const concept of related.sharedConcepts) {
-                        sharedEl.createSpan({ 
-                            cls: 'knowledge-synthesis-concept-tag knowledge-synthesis-shared',
-                            text: concept
-                        });
-                    }
-                }
+const sharedEl = noteEl.createDiv({
+	cls: 'knowledge-synthesis-shared-concepts'
+});
+
+sharedEl.createSpan({
+	cls: 'knowledge-synthesis-shared-label',
+	text: 'Shared concepts: '
+});
+
+const sharedList = sharedEl.createDiv({ cls: 'knowledge-synthesis-shared-list' });
+
+for (const concept of related.sharedConcepts) {
+	const tag = sharedList.createSpan({
+		cls: 'knowledge-synthesis-concept-tag knowledge-synthesis-shared',
+		text: concept
+	});
+
+	// Add remove button
+	const removeBtn = tag.createEl('button', { text: '×' });
+	removeBtn.style.marginLeft = '6px';
+	removeBtn.onclick = () => {
+		related.sharedConcepts = related.sharedConcepts.filter(c => c !== concept);
+		tag.remove();
+		this.pluginApi.updateNoteConcepts(related.file.path, related.sharedConcepts);
+	};
+}
+
+// Input to add new concept
+const inputWrapper = sharedEl.createDiv({ cls: 'knowledge-synthesis-add-concept' });
+const input = inputWrapper.createEl('input');
+input.placeholder = 'Add new concept...';
+input.style.marginRight = '6px';
+
+const addBtn = inputWrapper.createEl('button', { text: 'Add' });
+addBtn.onclick = () => {
+	const newConcept = input.value.trim();
+	if (newConcept && !related.sharedConcepts.includes(newConcept)) {
+		related.sharedConcepts.push(newConcept);
+		this.pluginApi.updateNoteConcepts(related.file.path, related.sharedConcepts);
+
+		const newTag = sharedList.createSpan({
+			cls: 'knowledge-synthesis-concept-tag knowledge-synthesis-shared',
+			text: newConcept
+		});
+
+		const removeBtn = newTag.createEl('button', { text: '×' });
+		removeBtn.style.marginLeft = '6px';
+		removeBtn.onclick = () => {
+			newTag.remove();
+			related.sharedConcepts = related.sharedConcepts.filter(c => c !== newConcept);
+			this.pluginApi.updateNoteConcepts(related.file.path, related.sharedConcepts);
+		};
+
+		input.value = '';
+	}
+};
+
             }
         } else {
             this.relatedContentEl.createEl('p', { 
