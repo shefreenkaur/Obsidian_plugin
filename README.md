@@ -10,6 +10,15 @@ A plugin that automatically analyzes note content to discover hidden connections
 - **Knowledge Graph**: Visualize semantic relationships between notes
 - **Summary Generation**: Create summary notes that combine information from related sources
 
+![Concept Graph](image.png)
+
+![Summary](image-2.png)
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+
 ## Installation
 
 ### For Testing and Review
