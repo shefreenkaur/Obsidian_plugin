@@ -33,8 +33,9 @@ A plugin that automatically analyzes note content to discover hidden connections
 
 1.  Clone the repository
 2.  Run `npm install` to install dependencies
-3.  Run `npm run dev` for development with hot-reload
-4.  Run `npm run build` to create a production build
+3.  Run `npm run build` to create a production build
+4.  Run `npm run dev` for development with hot-reload
+   
 
 ## Usage Guide
 
