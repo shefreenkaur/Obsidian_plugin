@@ -10,13 +10,8 @@ A plugin that automatically analyzes note content to discover hidden connections
 - **Knowledge Graph**: Visualize semantic relationships between notes
 - **Summary Generation**: Create summary notes that combine information from related sources
 
-![Concept Graph](image.png)
-
 ![Summary](image-2.png)
 
-![alt text](image-3.png)
-
-![alt text](image-4.png)
 
 
 ## Installation
@@ -49,6 +44,8 @@ A plugin that automatically analyzes note content to discover hidden connections
 2.  Click the "Network" icon in the ribbon to open the Related Notes panel
 3.  The plugin will automatically extract concepts from your current note and show related notes
 
+![alt text](image-3.png)
+
 ### Interacting with Concepts
 
 - **View Concepts**: Open any note to see its key concepts in the Related Notes panel
@@ -56,6 +53,7 @@ A plugin that automatically analyzes note content to discover hidden connections
 - **Find Related Notes**: The plugin automatically shows notes that share concepts with your current note
 - **Generate Summaries**: Click the "Generate Summary" button to create a new note that combines information from related sources
 
+![alt text](image-4.png)
 ### Configuration
 
 In the plugin settings, you can adjust:
